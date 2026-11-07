@@ -583,8 +583,268 @@ integración en la rama principal.
 \end{longtable}
 
 \section{Cuantificación de requisitos de calidad}
+Los umbrales siguientes son propuestas para validar
+con los interesados. No representan resultados de
+pruebas realizadas ni valores exigidos por ISO.
 
+\subsection{E03 Tiempo de respuesta}
 
+\textbf{Enunciado original:}
+La aplicación debe ser rápida.
+
+\textbf{Problema identificado:}
+La palabra ``rápida'' no establece un tiempo
+de respuesta ni condiciones para verificarlo.
+
+\textbf{Redacción propuesta:}
+Con 300 usuarios simultáneos, la plataforma deberá
+mostrar los horarios disponibles en un máximo
+de 3 segundos para al menos el 95\,\% de las
+consultas, durante una prueba de 30 minutos,
+con el entorno y las condiciones de red documentados.
+
+\textbf{Métrica:}
+Tiempo transcurrido desde que el usuario solicita
+la consulta hasta que los resultados se muestran
+en la interfaz.
+
+\textbf{Unidad:} Segundos.
+
+\textbf{Umbral:}
+Al menos el 95\,\% de las consultas deberá
+completarse en un tiempo menor o igual a 3 segundos.
+
+\textbf{Condiciones de operación:}
+300 usuarios simultáneos consultando disponibilidad,
+con una base de datos representativa del policlínico.
+
+\textbf{Método de verificación:}
+Prueba de carga de 30 minutos, instrumentando
+la interfaz para registrar los tiempos de respuesta
+y calculando el porcentaje de consultas que
+cumplen el umbral.
+
+\textbf{Justificación de la propuesta:}
+Los 300 usuarios simultáneos proceden del caso.
+El límite de 3 segundos, el porcentaje del 95\,\%
+y la duración de 30 minutos se proponen como
+criterios de aceptación pendientes de validación.
+
+\subsection{E07 Protección del acceso a datos de salud}
+
+\textbf{Enunciado original:}
+Los datos de salud de los pacientes deben
+estar seguros.
+
+\textbf{Problema identificado:}
+La expresión ``estar seguros'' no precisa
+qué protección se exige ni cómo comprobarla.
+
+\textbf{Redacción propuesta:}
+La plataforma deberá denegar el 100\,\% de
+los intentos de consulta de datos de salud
+realizados sin autenticación o sin autorización,
+según una matriz de permisos previamente
+acordada con el policlínico.
+
+\textbf{Métrica:}
+Porcentaje de intentos de consulta no autorizados
+que son denegados sin revelar datos de salud.
+
+\textbf{Unidad:} Porcentaje.
+
+\textbf{Umbral:}
+100\,\% de los casos de prueba de acceso
+no autorizado deberán ser denegados.
+
+\textbf{Condiciones de verificación:}
+La matriz de permisos deberá especificar
+qué datos puede consultar cada rol y sobre
+qué pacientes. Se probarán sesiones no
+autenticadas y usuarios autenticados sin
+el permiso requerido.
+
+\textbf{Método de verificación:}
+Ejecutar pruebas negativas sobre las interfaces
+y los servicios de consulta, incluidos intentos
+de acceder directamente a registros de otros
+pacientes. Comprobar que las respuestas
+no revelan datos protegidos.
+
+\textbf{Justificación de la propuesta:}
+El caso exige proteger datos sensibles de salud.
+Se propone concretar esta necesidad mediante
+el control de acceso. La matriz de permisos
+y los casos de prueba deberán validarse
+con los responsables del policlínico.
+
+\textbf{Alcance:}
+Esta reformulación aborda la confidencialidad
+del acceso; no demuestra por sí sola
+la seguridad completa de la plataforma.
+
+\subsection{E10 Facilidad de uso para adultos mayores}
+
+\textbf{Enunciado original:}
+La plataforma debe ser fácil de usar para
+los pacientes adultos mayores.
+
+\textbf{Problema identificado:}
+No se especifica qué tarea debe resultar fácil,
+para qué usuarios ni cómo se evaluará.
+
+\textbf{Redacción propuesta:}
+Al menos el 90\,\% de los participantes mayores
+de 60 años deberá completar correctamente
+la reserva de una cita disponible desde un
+teléfono Android en un máximo de 5 minutos,
+en su primer intento y sin ayuda del evaluador.
+
+\textbf{Métrica:}
+Porcentaje de participantes que completa
+correctamente la reserva dentro del tiempo
+establecido y sin ayuda del evaluador.
+
+\textbf{Unidades:} Porcentaje y minutos.
+
+\textbf{Umbral:}
+Al menos el 90\,\% de los participantes deberá
+completar la tarea en un tiempo menor o
+igual a 5 minutos.
+
+\textbf{Condiciones de verificación:}
+Participarán 20 personas mayores de 60 años
+que no hayan utilizado previamente la plataforma,
+incluyendo personas con poca experiencia
+en el uso del celular. Se utilizarán teléfonos
+Android de gama media o baja y cuentas de prueba
+con la sesión iniciada.
+
+\textbf{Método de verificación:}
+Realizar una prueba de uso con una consigna
+común: reservar una cita disponible.
+Medir desde que se presenta la consigna hasta
+que aparece la confirmación y comprobar
+que la especialidad, el médico, la fecha
+y la hora coinciden con lo solicitado.
+
+\textbf{Justificación de la propuesta:}
+Algunos adultos mayores tienen poca experiencia
+con el celular. Por ello, se propone evaluar
+si pueden reservar una cita sin ayuda y
+en un tiempo definido. El porcentaje, el tiempo
+y el tamaño de la muestra deberán validarse
+con los interesados.
+
+\subsection{E14 Disponibilidad de la plataforma}
+
+\textbf{Enunciado original:}
+La plataforma debe estar siempre disponible.
+
+\textbf{Problema identificado:}
+La palabra ``siempre'' no establece un periodo
+de medición ni un margen de interrupción aceptable.
+
+\textbf{Redacción propuesta:}
+La plataforma deberá mantener una disponibilidad
+mensual mínima del 99,99\,\% para consultar
+horarios y reservar citas, sobre una ventana
+de servicio de 24 horas al día, incluyendo
+las interrupciones por mantenimiento.
+
+\textbf{Métrica:}
+Porcentaje del tiempo mensual durante el cual
+ambas funciones están operativas.
+
+\textbf{Cálculo:}
+Disponibilidad = 100 por el tiempo operativo
+dividido entre el tiempo total del mes.
+
+\textbf{Unidad:} Porcentaje.
+
+\textbf{Umbral:}
+Disponibilidad mensual mayor o igual
+al 99,99\,\%.
+
+\textbf{Método de verificación:}
+Ejecutar comprobaciones automáticas cada
+10 segundos en un entorno de monitoreo,
+verificando la consulta de horarios y una
+reserva con datos de prueba. Registrar los
+intervalos de indisponibilidad y calcular
+el porcentaje mensual.
+
+\textbf{Justificación de la propuesta:}
+Algunos pacientes tienen poco tiempo libre
+y una interrupción puede impedirles reservar
+en el momento en que pueden hacerlo.
+Por ello se propone reducir el tiempo
+de indisponibilidad permitido.
+
+\textbf{Validación pendiente:}
+El umbral y el método de monitoreo deberán
+acordarse con el policlínico y el área de TI,
+considerando su viabilidad técnica y económica.
+
+\subsection{E18 Integración con facturación}
+
+\textbf{Enunciado original:}
+La plataforma debe integrarse sin problemas
+con el sistema de facturación actual.
+
+\textbf{Problema identificado:}
+La expresión ``sin problemas'' no establece
+qué datos deben intercambiarse ni cómo
+comprobar que la integración es correcta.
+
+\textbf{Redacción propuesta:}
+Al registrar cobros mediante los servicios web
+del sistema de facturación existente, el
+100\,\% de las operaciones confirmadas deberá
+conservar la correspondencia entre el paciente,
+la cita, el importe y el identificador del cobro.
+Los reintentos de una misma operación no deberán
+generar cobros duplicados.
+
+\textbf{Métricas:}
+Porcentaje de cobros confirmados cuyos datos
+coinciden con la operación original y número
+de cobros duplicados generados por reintentos.
+
+\textbf{Unidades:}
+Porcentaje y número de cobros duplicados.
+
+\textbf{Umbrales:}
+100\,\% de correspondencia de datos y
+cero cobros duplicados en los casos de prueba.
+
+\textbf{Condiciones de verificación:}
+Utilizar un entorno de pruebas y datos ficticios
+de distintos pacientes, citas e importes.
+Incluir operaciones normales, reintentos y
+pérdidas de conexión antes y después de
+la aceptación de un cobro.
+
+\textbf{Método de verificación:}
+Ejecutar pruebas de integración y comparar
+los registros de ambos sistemas. Comprobar
+que cada cobro confirmado corresponde al
+paciente, la cita y el importe originales,
+y que repetir una solicitud no produce
+un segundo cobro.
+
+\textbf{Justificación de la propuesta:}
+Un error de integración puede asociar
+a un paciente el importe de otra persona
+o cobrar varias veces la misma consulta.
+Por ello se priorizan la correspondencia
+de los datos y la ausencia de duplicados.
+
+\textbf{Validación pendiente:}
+Acordar con el proveedor los campos,
+identificadores y mecanismos para consultar
+el estado de una operación y evitar duplicados,
+según la interfaz documentada.
 
 \section{Discrepancias y resolución}
 
