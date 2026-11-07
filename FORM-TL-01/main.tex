@@ -26,6 +26,12 @@
 \fancyfoot[L]{\small Angelo Espinoza}
 \fancyfoot[R]{\small Página \thepage}
 
+\usepackage[
+    backend=biber,
+    style=ieee
+]{biblatex}
+
+\addbibresource{referencias.bib}
 \begin{document}
 
 \begin{center}
@@ -73,7 +79,7 @@ Los enunciados se clasifican en tres dimensiones:
 tipo de requisito, producto o proceso, y sistema
 o software. Para los requisitos de calidad se
 incluye la característica y subcaracterística
-de ISO/IEC 25010:2023.
+de ISO/IEC 25010:2023~\cite{iso25010}.
 
 \begin{longtable}{|
     p{0.08\textwidth}|
@@ -127,8 +133,9 @@ No aplica como clasificación de calidad.
 \textbf{Sistema o software:} Software.
 
 \textbf{Justificación:}
-Especifica el envío automático de un recordatorio
-y el momento en que debe ejecutarse.
+Especifica la programación y solicitud automática
+del recordatorio por el software; la entrega
+del SMS requiere un servicio externo.
 \\
 \hline
 
@@ -174,50 +181,6 @@ Define la función de registrar en la aplicación
 la llegada de un paciente.
 \\
 \hline
-
-\textbf{E03} &
-\textbf{Enunciado:}
-La aplicación debe ser rápida.
-
-\textbf{Tipo:} Calidad.
-
-\textbf{ISO/IEC 25010:2023:}
-Eficiencia de desempeño
-(\textit{performance efficiency});
-comportamiento temporal
-(\textit{time behaviour}).
-
-\textbf{Producto o proceso:} Producto.
-
-\textbf{Sistema o software:} Software.
-
-\textbf{Justificación:}
-Expresa una expectativa sobre el tiempo de respuesta
-de la aplicación, aunque no establece un umbral
-que permita verificarla.
-\\
-\hline
-
-\textbf{E04} &
-\textbf{Enunciado:}
-El recepcionista podrá registrar la llegada del
-paciente que se acerca a la ventanilla.
-
-\textbf{Tipo:} Funcional.
-
-\textbf{ISO/IEC 25010:2023:}
-No aplica como clasificación de calidad.
-
-\textbf{Producto o proceso:} Producto.
-
-\textbf{Sistema o software:} Software.
-
-\textbf{Justificación:}
-Define la función de registrar en la aplicación
-la llegada de un paciente.
-\\
-\hline
-
 
 \textbf{E05} &
 \textbf{Enunciado:}
@@ -364,8 +327,8 @@ no una propiedad de calidad del producto.
 \textbf{Producto o proceso:} Proceso.
 
 \textbf{Sistema o software:}
-Sistema, por referirse a la entrega del
-proyecto completo.
+No aplica directamente: establece una condición
+del proyecto o del proceso de desarrollo.
 
 \textbf{Justificación:}
 Limita el tiempo disponible para desarrollar
@@ -475,8 +438,8 @@ de desarrollo, no de calidad del producto.
 \textbf{Producto o proceso:} Proceso.
 
 \textbf{Sistema o software:}
-Sistema, por abarcar los incrementos de la
-solución completa.
+No aplica directamente: establece una condición
+del proyecto o del proceso de desarrollo.
 
 \textbf{Justificación:}
 Impone quién participa en la validación de
@@ -572,7 +535,8 @@ no una propiedad de calidad del producto.
 
 \textbf{Producto o proceso:} Proceso.
 
-\textbf{Sistema o software:} Software.
+\textbf{Sistema o software:}
+Proceso de desarrollo del software.
 
 \textbf{Justificación:}
 Impone la revisión del código por otro
@@ -583,6 +547,13 @@ integración en la rama principal.
 \end{longtable}
 
 \section{Cuantificación de requisitos de calidad}
+
+Las reformulaciones buscan mejorar la claridad
+y verificabilidad de los enunciados, atendiendo
+a las características de los requisitos individuales
+de ISO/IEC/IEEE 29148:2018,
+apartado 5.2.5~\cite{iso29148}.
+
 Los umbrales siguientes son propuestas para validar
 con los interesados. No representan resultados de
 pruebas realizadas ni valores exigidos por ISO.
@@ -781,10 +752,18 @@ en el momento en que pueden hacerlo.
 Por ello se propone reducir el tiempo
 de indisponibilidad permitido.
 
-\textbf{Validación pendiente:}
+\textbf{Condiciones para su aceptación:}
 El umbral y el método de monitoreo deberán
 acordarse con el policlínico y el área de TI,
 considerando su viabilidad técnica y económica.
+
+\textbf{Relación con E19:}
+El límite de recuperación de menos de 30 minutos
+no garantiza el cumplimiento de la disponibilidad
+propuesta. En un mes de 30 días, el 99,99\,\%
+permite aproximadamente 4 minutos y 19 segundos
+de indisponibilidad acumulada. Ambos requisitos
+deberán revisarse conjuntamente con el área de TI.
 
 \subsection{E18 Integración con facturación}
 
@@ -798,13 +777,19 @@ qué datos deben intercambiarse ni cómo
 comprobar que la integración es correcta.
 
 \textbf{Redacción propuesta:}
+
+\textbf{E18.1 Correspondencia de datos:}
+
 Al registrar cobros mediante los servicios web
 del sistema de facturación existente, el
 100\,\% de las operaciones confirmadas deberá
 conservar la correspondencia entre el paciente,
 la cita, el importe y el identificador del cobro.
-Los reintentos de una misma operación no deberán
-generar cobros duplicados.
+
+\textbf{E18.2 Prevención de duplicados:}
+
+Los reintentos de una misma operación de cobro
+deberán generar cero cobros duplicados.
 
 \textbf{Métricas:}
 Porcentaje de cobros confirmados cuyos datos
@@ -840,7 +825,7 @@ o cobrar varias veces la misma consulta.
 Por ello se priorizan la correspondencia
 de los datos y la ausencia de duplicados.
 
-\textbf{Validación pendiente:}
+\textbf{Condiciones para su aceptación:}
 Acordar con el proveedor los campos,
 identificadores y mecanismos para consultar
 el estado de una operación y evitar duplicados,
@@ -848,14 +833,123 @@ según la interfaz documentada.
 
 \section{Discrepancias y resolución}
 
+Se comparó la clasificación con un compañero
+del curso. Se identificaron
+diferencias en E02, E07, E09, E10, E11 y E16.
+A continuación se registran las posturas y
+las conclusiones del intercambio.
+
+\subsection{E02 Envío de recordatorios}
+
+Mi clasificación fue software, porque la
+aplicación programa y solicita el envío
+del recordatorio. El compañero eligió sistema,
+porque la entrega del SMS requiere un
+servicio externo de mensajería.
+
+El intercambio permitió identificar que la
+diferencia depende del límite considerado.
+En este documento se conserva software
+para la función de programar y solicitar
+el envío. La entrega completa del mensaje,
+incluido el proveedor externo, corresponde
+al alcance del sistema.
+
+\subsection{E07 Protección de datos de salud}
+
+El compañero seleccionó confidencialidad por la
+necesidad de impedir accesos no autorizados.
+Mi propuesta incluyó también integridad,
+para considerar la protección frente a
+modificaciones indebidas.
+
+Se reconoció que ambas subcaracterísticas
+son pertinentes, pero que el enunciado
+original no permite determinar con precisión
+cuáles exige. Se conserva seguridad como
+característica y se presentan confidencialidad
+e integridad como interpretaciones que deben
+concretarse. La cuantificación propuesta
+en este documento aborda únicamente
+la confidencialidad del acceso.
+
+\subsection{E09 Cancelación tardía}
+
+El compañero clasificó el enunciado como restricción
+de dominio por expresar una regla del
+policlínico. Mi clasificación fue funcional,
+porque establece el comportamiento de
+registrar una cancelación tardía como
+inasistencia.
+
+Tras contrastar ambos argumentos, se adoptó
+como categoría principal funcional,
+conservando la regla de negocio como origen
+del comportamiento exigido.
+
+\subsection{E10 Facilidad de uso}
+
+El compañero eligió inclusividad por estar dirigido
+a pacientes adultos mayores. Mi clasificación
+incluyó también operabilidad, por la facilidad
+para realizar acciones en la plataforma.
+
+Se reconoció la relación con ambas
+subcaracterísticas de la capacidad de
+interacción. También se coincidió en que
+la expresión ``fácil de usar'' necesita
+una tarea, condiciones y criterios medibles
+para poder verificarse.
+
+\subsection{E11 y E16 Condiciones del proceso}
+
+El compañero utilizó sistema como ámbito general
+del proyecto. Mi criterio fue que la dimensión
+sistema/software no se aplica directamente
+a estas condiciones del proceso.
+
+Se concluyó que E11 impone un plazo de
+entrega y E16 establece la periodicidad
+y los participantes de la validación.
+Ambos se mantienen como restricciones
+de proceso. En la dimensión sistema/software
+se indica ``No aplica directamente'',
+porque no describen propiedades del
+producto resultante.
 
 
-\section{Referencias}
+
+\printbibliography[heading=bibnumbered,title={Referencias}]
 
 
-
+\clearpage
 \section{Declaración de uso de inteligencia artificial}
 
+Se utilizó ChatGPT de OpenAI para comprender
+conceptos de ingeniería de requisitos y aclarar
+dudas sobre los criterios de clasificación.
 
+Durante la elaboración se recibieron propuestas
+de clasificación y cuantificación y fragmentos
+de redacción que sirvieron como base para
+discutir las decisiones del caso.
+
+También se empleó para organizar el documento
+en LaTeX, revisar la redacción y detectar
+enunciados duplicados e inconsistencias
+entre apartados.
+
+Finalmente, apoyó la preparación de preguntas
+para comparar criterios con un compañero
+y el contraste documental con apartados
+accesibles de las normas citadas. La revisión
+incluyó la comparación con el compañero
+y la consulta de los apartados pertinentes.
+No se registró la versión específica del modelo.
+
+Los umbrales son propuestas para el caso
+de estudio. Las pruebas descritas no se
+ejecutaron ni se presentan resultados
+experimentales.
 
 \end{document}
