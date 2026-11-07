@@ -1,0 +1,601 @@
+\documentclass[11pt,a4paper]{article}
+
+% Idioma y caracteres
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[spanish]{babel}
+
+% Diseño
+\usepackage[margin=2.5cm]{geometry}
+\usepackage{fancyhdr}
+\usepackage{tabularx}
+\usepackage{longtable}
+\usepackage[table]{xcolor}
+\usepackage{hyperref}
+
+\setlength{\headheight}{14pt}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{6pt}
+\renewcommand{\arraystretch}{1.3}
+
+% Encabezado y pie de página
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[L]{\small UTEQ · Ingeniería de Requerimientos}
+\fancyhead[R]{\small FORM-TL-01}
+\fancyfoot[L]{\small Angelo Espinoza}
+\fancyfoot[R]{\small Página \thepage}
+
+\begin{document}
+
+\begin{center}
+    {\large\textbf{
+        UNIVERSIDAD TÉCNICA ESTATAL DE QUEVEDO
+    }}
+
+    Facultad de Ciencias de la Computación\\
+    Carrera de Software
+
+    \vspace{0.6cm}
+
+    {\LARGE\textbf{Taller de tipos de requisitos}}
+
+    \vspace{0.2cm}
+
+    {\large FORM-TL-01}\\
+    Actividad formativa
+\end{center}
+
+\vspace{0.4cm}
+
+\section{Datos informativos}
+
+\begin{tabularx}{\textwidth}{|l|X|}
+\hline
+\rowcolor{gray!15}
+\textbf{Campo} & \textbf{Detalle} \\
+\hline
+Estudiante & Angelo Maximiliano Espinoza Pivaque \\
+\hline
+Asignatura & Ingeniería de Requerimientos (ISR-401) \\
+\hline
+Nivel y paralelo & Cuarto nivel, paralelo A \\
+\hline
+Docente & Gleiston Cicerón Guerrero Ulloa, PhD \\
+\hline
+Caso & Plataforma de gestión de citas médicas \\
+\hline
+\end{tabularx}
+
+\section{Clasificación de los enunciados}
+
+Los enunciados se clasifican en tres dimensiones:
+tipo de requisito, producto o proceso, y sistema
+o software. Para los requisitos de calidad se
+incluye la característica y subcaracterística
+de ISO/IEC 25010:2023.
+
+\begin{longtable}{|
+    p{0.08\textwidth}|
+    p{0.82\textwidth}|}
+
+\hline
+\rowcolor{gray!15}
+\textbf{Código} & \textbf{Clasificación y justificación} \\
+\hline
+\endfirsthead
+
+\hline
+\rowcolor{gray!15}
+\textbf{Código} & \textbf{Clasificación y justificación} \\
+\hline
+\endhead
+
+\textbf{E01} &
+\textbf{Enunciado:}
+El paciente podrá reservar una cita eligiendo
+especialidad, médico, fecha y hora entre los
+horarios disponibles.
+
+\textbf{Tipo:} Funcional.
+
+\textbf{ISO/IEC 25010:2023:}
+No aplica como clasificación de calidad.
+
+\textbf{Producto o proceso:} Producto.
+
+\textbf{Sistema o software:} Software.
+
+\textbf{Justificación:}
+Define la función de reservar citas que debe
+ofrecer la aplicación al paciente.
+\\
+\hline
+
+\textbf{E02} &
+\textbf{Enunciado:}
+La plataforma enviará al paciente un recordatorio
+por mensaje de texto 24 horas antes de su cita.
+
+\textbf{Tipo:} Funcional.
+
+\textbf{ISO/IEC 25010:2023:}
+No aplica como clasificación de calidad.
+
+\textbf{Producto o proceso:} Producto.
+
+\textbf{Sistema o software:} Software.
+
+\textbf{Justificación:}
+Especifica el envío automático de un recordatorio
+y el momento en que debe ejecutarse.
+\\
+\hline
+
+\textbf{E03} &
+\textbf{Enunciado:}
+La aplicación debe ser rápida.
+
+\textbf{Tipo:} Calidad.
+
+\textbf{ISO/IEC 25010:2023:}
+Eficiencia de desempeño
+(\textit{performance efficiency});
+comportamiento temporal
+(\textit{time behaviour}).
+
+\textbf{Producto o proceso:} Producto.
+
+\textbf{Sistema o software:} Software.
+
+\textbf{Justificación:}
+Expresa una expectativa sobre el tiempo de respuesta
+de la aplicación, aunque no establece un umbral
+que permita verificarla.
+\\
+\hline
+
+\textbf{E04} &
+\textbf{Enunciado:}
+El recepcionista podrá registrar la llegada del
+paciente que se acerca a la ventanilla.
+
+\textbf{Tipo:} Funcional.
+
+\textbf{ISO/IEC 25010:2023:}
+No aplica como clasificación de calidad.
+
+\textbf{Producto o proceso:} Producto.
+
+\textbf{Sistema o software:} Software.
+
+\textbf{Justificación:}
+Define la función de registrar en la aplicación
+la llegada de un paciente.
+\\
+\hline
+
+\textbf{E03} &
+\textbf{Enunciado:}
+La aplicación debe ser rápida.
+
+\textbf{Tipo:} Calidad.
+
+\textbf{ISO/IEC 25010:2023:}
+Eficiencia de desempeño
+(\textit{performance efficiency});
+comportamiento temporal
+(\textit{time behaviour}).
+
+\textbf{Producto o proceso:} Producto.
+
+\textbf{Sistema o software:} Software.
+
+\textbf{Justificación:}
+Expresa una expectativa sobre el tiempo de respuesta
+de la aplicación, aunque no establece un umbral
+que permita verificarla.
+\\
+\hline
+
+\textbf{E04} &
+\textbf{Enunciado:}
+El recepcionista podrá registrar la llegada del
+paciente que se acerca a la ventanilla.
+
+\textbf{Tipo:} Funcional.
+
+\textbf{ISO/IEC 25010:2023:}
+No aplica como clasificación de calidad.
+
+\textbf{Producto o proceso:} Producto.
+
+\textbf{Sistema o software:} Software.
+
+\textbf{Justificación:}
+Define la función de registrar en la aplicación
+la llegada de un paciente.
+\\
+\hline
+
+
+\textbf{E05} &
+\textbf{Enunciado:}
+La plataforma se desarrollará en Java 21 con
+base de datos PostgreSQL, tecnologías que
+domina el área de TI.
+
+\textbf{Tipo:} Restricción tecnológica.
+
+\textbf{ISO/IEC 25010:2023:}
+No aplica como clasificación de calidad.
+
+\textbf{Producto o proceso:} Producto.
+
+\textbf{Sistema o software:} Software.
+
+\textbf{Justificación:}
+Limita las tecnologías de implementación del
+software al exigir Java 21 y PostgreSQL.
+\\
+\hline
+
+\textbf{E06} &
+\textbf{Enunciado:}
+El médico podrá consultar la lista de pacientes
+del día y marcar cada consulta como atendida.
+
+\textbf{Tipo:} Funcional.
+
+\textbf{ISO/IEC 25010:2023:}
+No aplica como clasificación de calidad.
+
+\textbf{Producto o proceso:} Producto.
+
+\textbf{Sistema o software:} Software.
+
+\textbf{Justificación:}
+Define las funciones de consultar la agenda
+diaria y registrar las consultas atendidas.
+\\
+\hline
+
+\textbf{E07} &
+\textbf{Enunciado:}
+Los datos de salud de los pacientes deben
+estar seguros.
+
+\textbf{Tipo:} Calidad.
+
+\textbf{ISO/IEC 25010:2023:}
+Seguridad. Se proponen confidencialidad e
+integridad como subcaracterísticas relevantes;
+el enunciado original no precisa cuáles exige.
+
+\textbf{Producto o proceso:} Producto.
+
+\textbf{Sistema o software:} Sistema.
+
+\textbf{Justificación:}
+Expresa una expectativa de protección de los
+datos en el sistema completo, pero no define
+controles ni criterios verificables.
+\\
+\hline
+
+\textbf{E08} &
+\textbf{Enunciado:}
+La aplicación móvil debe funcionar en teléfonos
+con Android 10 o superior.
+
+\textbf{Tipo:} Restricción de plataforma.
+
+\textbf{ISO/IEC 25010:2023:}
+No aplica como clasificación de calidad
+en el criterio adoptado.
+
+\textbf{Producto o proceso:} Producto.
+
+\textbf{Sistema o software:} Software.
+
+\textbf{Justificación:}
+Impone el sistema operativo y la versión mínima
+que debe admitir la aplicación móvil.
+\\
+\hline
+
+\textbf{E09} &
+\textbf{Enunciado:}
+Una cita cancelada con menos de cuatro horas
+de anticipación se registrará como inasistencia.
+
+\textbf{Tipo:} Funcional, derivado de una
+regla de negocio.
+
+\textbf{ISO/IEC 25010:2023:}
+No aplica como clasificación de calidad.
+
+\textbf{Producto o proceso:} Producto.
+
+\textbf{Sistema o software:} Software.
+
+\textbf{Justificación:}
+Define el comportamiento del software ante una
+cancelación tardía: registrar una inasistencia.
+\\
+\hline
+
+\textbf{E10} &
+\textbf{Enunciado:}
+La plataforma debe ser fácil de usar para
+los pacientes adultos mayores.
+
+\textbf{Tipo:} Calidad.
+
+\textbf{ISO/IEC 25010:2023:}
+Capacidad de interacción
+(\textit{interaction capability});
+operabilidad (\textit{operability}) e
+inclusividad (\textit{inclusivity}).
+
+\textbf{Producto o proceso:} Producto.
+
+\textbf{Sistema o software:} Sistema.
+
+\textbf{Justificación:}
+Exige facilidad de operación para adultos
+mayores en las interfaces de la plataforma,
+incluido el quiosco, pero no define criterios
+medibles de aceptación.
+\\
+\hline
+
+\textbf{E11} &
+\textbf{Enunciado:}
+El proyecto debe entregarse en un plazo
+máximo de seis meses.
+
+\textbf{Tipo:} Restricción temporal.
+
+\textbf{ISO/IEC 25010:2023:}
+No aplica; establece un plazo del proyecto,
+no una propiedad de calidad del producto.
+
+\textbf{Producto o proceso:} Proceso.
+
+\textbf{Sistema o software:}
+Sistema, por referirse a la entrega del
+proyecto completo.
+
+\textbf{Justificación:}
+Limita el tiempo disponible para desarrollar
+y entregar la solución completa.
+\\
+\hline
+
+\textbf{E12} &
+\textbf{Enunciado:}
+La sesión de un usuario se cerrará
+automáticamente tras 10 minutos sin actividad.
+
+\textbf{Tipo:}
+Funcional, con propósito de seguridad.
+
+\textbf{ISO/IEC 25010:2023:}
+No aplica como clasificación de calidad;
+especifica un comportamiento concreto
+que contribuye a la seguridad.
+
+\textbf{Producto o proceso:} Producto.
+
+\textbf{Sistema o software:} Software.
+
+\textbf{Justificación:}
+Define una acción automática del software:
+cerrar la sesión al cumplirse 10 minutos
+de inactividad.
+\\
+\hline
+
+\textbf{E13} &
+\textbf{Enunciado:}
+El quiosco de la sala de espera leerá el número
+de cédula ingresado en su pantalla táctil e
+imprimirá un ticket con el número de turno.
+
+\textbf{Tipo:} Funcional.
+
+\textbf{ISO/IEC 25010:2023:}
+No aplica como clasificación de calidad.
+
+\textbf{Producto o proceso:} Producto.
+
+\textbf{Sistema o software:} Sistema.
+
+\textbf{Justificación:}
+Define funciones que requieren la interacción
+del software con la pantalla táctil y la
+impresora térmica del quiosco.
+\\
+\hline
+
+\textbf{E14} &
+\textbf{Enunciado:}
+La plataforma debe estar siempre disponible.
+
+\textbf{Tipo:} Calidad.
+
+\textbf{ISO/IEC 25010:2023:}
+Fiabilidad (\textit{reliability});
+disponibilidad (\textit{availability}).
+
+\textbf{Producto o proceso:} Producto.
+
+\textbf{Sistema o software:} Sistema.
+
+\textbf{Justificación:}
+Exige que el servicio esté operativo y accesible,
+lo que depende del software y la infraestructura;
+no define un periodo ni un porcentaje de
+disponibilidad para verificar su cumplimiento.
+\\
+\hline
+\textbf{E15} &
+\textbf{Enunciado:}
+El director médico podrá generar un reporte
+mensual de inasistencias por especialidad.
+
+\textbf{Tipo:} Funcional.
+
+\textbf{ISO/IEC 25010:2023:}
+No aplica como clasificación de calidad.
+
+\textbf{Producto o proceso:} Producto.
+
+\textbf{Sistema o software:} Software.
+
+\textbf{Justificación:}
+Define la función de generar reportes de
+inasistencias agrupadas por especialidad
+para un periodo mensual.
+\\
+\hline
+
+\textbf{E16} &
+\textbf{Enunciado:}
+Cada incremento se validará con el director
+médico al final de cada iteración de dos semanas.
+
+\textbf{Tipo:} Restricción del proceso.
+
+\textbf{ISO/IEC 25010:2023:}
+No aplica; establece una condición del proceso
+de desarrollo, no de calidad del producto.
+
+\textbf{Producto o proceso:} Proceso.
+
+\textbf{Sistema o software:}
+Sistema, por abarcar los incrementos de la
+solución completa.
+
+\textbf{Justificación:}
+Impone quién participa en la validación de
+cada incremento y la periodicidad de
+esa actividad.
+\\
+\hline
+
+\textbf{E17} &
+\textbf{Enunciado:}
+El tratamiento de los datos personales de
+los pacientes debe cumplir la Ley Orgánica
+de Protección de Datos Personales del Ecuador.
+
+\textbf{Tipo:} Restricción legal.
+
+\textbf{ISO/IEC 25010:2023:}
+No aplica como clasificación de calidad;
+el cumplimiento legal no se reduce a
+una característica del modelo.
+
+\textbf{Producto o proceso:} Producto,
+con implicaciones para el proceso.
+
+\textbf{Sistema o software:} Sistema.
+
+\textbf{Justificación:}
+Impone un marco legal al tratamiento de
+datos personales en la solución completa,
+incluidos sus procedimientos de operación.
+\\
+\hline
+
+\textbf{E18} &
+\textbf{Enunciado:}
+La plataforma debe integrarse sin problemas
+con el sistema de facturación actual.
+
+\textbf{Tipo:} Calidad.
+
+\textbf{ISO/IEC 25010:2023:}
+Compatibilidad (\textit{compatibility});
+interoperabilidad (\textit{interoperability}).
+
+\textbf{Producto o proceso:} Producto.
+
+\textbf{Sistema o software:} Sistema.
+
+\textbf{Justificación:}
+Exige el intercambio y uso de información
+entre la plataforma y el sistema de facturación,
+pero no precisa qué significa integrarse
+sin problemas.
+\\
+\hline
+
+\textbf{E19} &
+\textbf{Enunciado:}
+Si el servidor principal falla, la plataforma
+debe restablecer el servicio en menos de
+30 minutos sin perder ninguna cita confirmada.
+
+\textbf{Tipo:} Calidad.
+
+\textbf{ISO/IEC 25010:2023:}
+Fiabilidad (\textit{reliability});
+capacidad de recuperación
+(\textit{recoverability}).
+
+\textbf{Producto o proceso:} Producto.
+
+\textbf{Sistema o software:} Sistema.
+
+\textbf{Justificación:}
+Establece condiciones de recuperación del
+servicio y de los datos ante un fallo del
+servidor: menos de 30 minutos y ninguna
+cita confirmada perdida.
+\\
+\hline
+
+\textbf{E20} &
+\textbf{Enunciado:}
+Todo cambio en el código fuente será revisado
+por otro integrante del equipo antes de
+integrarse a la rama principal.
+
+\textbf{Tipo:} Restricción del proceso.
+
+\textbf{ISO/IEC 25010:2023:}
+No aplica; exige una práctica de desarrollo,
+no una propiedad de calidad del producto.
+
+\textbf{Producto o proceso:} Proceso.
+
+\textbf{Sistema o software:} Software.
+
+\textbf{Justificación:}
+Impone la revisión del código por otro
+integrante como condición previa a su
+integración en la rama principal.
+\\
+\hline
+\end{longtable}
+
+\section{Cuantificación de requisitos de calidad}
+
+
+
+\section{Discrepancias y resolución}
+
+
+
+\section{Referencias}
+
+
+
+\section{Declaración de uso de inteligencia artificial}
+
+
+
+\end{document}
